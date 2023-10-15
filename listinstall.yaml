@@ -1,0 +1,13 @@
+---
+- name: Check Installed Packages
+  hosts: all   # Replace with the name of your server group or individual server
+  become: yes                # Run tasks with administrative privileges (sudo)
+
+  tasks:
+    - name: List installed packages
+      command: dpkg --get-selections | grep -v deinstall
+      register: installed_packages
+
+    - name: Display installed packages
+      debug:
+        var: installed_packages.stdout_lines
