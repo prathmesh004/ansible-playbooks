@@ -1,0 +1,14 @@
+---
+- name: Check Disk Space
+  hosts: all   # Replace with the name of your server or server group
+  gather_facts: yes    # Enable gathering of facts
+
+  tasks:
+    - name: Gather Disk Space Facts
+      ansible.builtin.setup:
+        gather_subset:
+          - filesystem
+
+    - name: Display Disk Space
+      debug:
+        var: ansible_facts['ansible_mounts']
