@@ -1,7 +1,7 @@
 ---
 - name: Restart Nginx on Ubuntu 22.04
   hosts: all   # Replace with the name of your server group or individual server
-  become: no                # Run tasks with administrative privileges (sudo)
+  become: yes                # Run tasks with administrative privileges (sudo)
 
   tasks:
     - name: Restart Nginx
