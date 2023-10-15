@@ -1,0 +1,10 @@
+---
+- name: Restart Nginx on Ubuntu
+  hosts: all   # Replace with the name of your server group or individual server
+  become: yes                # Run tasks with administrative privileges (sudo)
+
+  tasks:
+    - name: Restart Nginx
+      systemd:
+        name: nginx
+        state: restarted
