@@ -1,0 +1,15 @@
+---
+- name: Update and Upgrade Ubuntu Server
+  hosts: all   # Replace with the name of your server group or individual server
+  become: yes                # Run tasks with administrative privileges (sudo)
+
+  tasks:
+    - name: Update package lists
+      apt:
+        update_cache: yes
+      become: yes
+
+    - name: Upgrade packages
+      apt:
+        upgrade: dist
+      become: yes
