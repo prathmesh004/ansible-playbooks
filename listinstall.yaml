@@ -5,7 +5,7 @@
 
   tasks:
     - name: List installed packages
-      command: dpkg --get-selections | grep -v deinstall
+      command: sudo apt list –-installed | less
       register: installed_packages
 
     - name: Display installed packages
