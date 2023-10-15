@@ -1,0 +1,15 @@
+---
+- name: Check Server Reachability and Root Login
+  hosts: all   # Replace with the IP address or hostname of your server
+  gather_facts: no     # Disable fact gathering to speed up the process
+
+  tasks:
+    - name: Ping Test
+      ping:
+
+    - name: Check Root Login
+      become: yes
+      shell: echo "Root login successful"
+
+      # Optional: Uncomment the following line if you want to explicitly set the user to root
+      # remote_user: root
