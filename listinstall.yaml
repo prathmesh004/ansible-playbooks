@@ -5,7 +5,7 @@
 
   tasks:
     - name: List installed packages
-      command: sudo apt list –-installed | less
+      command: sudo apt list –-installed
       register: installed_packages
 
     - name: Display installed packages
