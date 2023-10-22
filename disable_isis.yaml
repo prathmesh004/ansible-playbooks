@@ -5,7 +5,7 @@ yaml
 Copy code
 ---
 - name: Disable ISIS Protocol on Juniper Router
-  hosts: your_router_ip_or_hostname
+  hosts: all
   gather_facts: no
   connection: local
   tasks:
