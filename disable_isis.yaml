@@ -1,0 +1,22 @@
+
+Certainly! To create an Ansible playbook to disable the ISIS protocol on a Juniper router, you'll need to use the Junos OS modules provided by Ansible. Here's an example playbook:
+
+yaml
+Copy code
+---
+- name: Disable ISIS Protocol on Juniper Router
+  hosts: your_router_ip_or_hostname
+  gather_facts: no
+  connection: local
+  tasks:
+    - name: Disable ISIS Protocol
+      junos_command:
+        commands:
+          - set protocols isis disable
+      register: result
+
+    - name: Commit Changes
+      junos_command:
+        commands:
+          - commit and-quit
+      when: "result.stdout.find('commit complete') != -1"
